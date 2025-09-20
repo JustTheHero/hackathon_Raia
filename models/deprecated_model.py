@@ -2,10 +2,9 @@ import pandas as pd
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Embedding, Dense, Dropout, GlobalMaxPooling1D
+from tensorflow.keras.layers import Embedding, LSTM, Dense, Dropout, GlobalMaxPooling1D, Conv1D, MaxPooling1D
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
-from tensorflow.python.keras.layers import Conv1D
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report, confusion_matrix
 import matplotlib.pyplot as plt
@@ -25,8 +24,8 @@ class FakeNewsWOW:
         print(f"distribuicao:\n{df['label'].value_counts()}")
         print(f"NUll valores:\n{df.isnull().sum()}")
         
-        texts = df['preprocessed_news'].astype(str).tolist()
-        labels = (df['label'] == 'fake').astype(int).tolist()  
+        texts = df['claim'].astype(str).tolist()
+        labels = (df['label'] == 'False').astype(int).tolist()  
         
         return texts, labels
     
@@ -108,12 +107,12 @@ class FakeNewsWOW:
         y_pred = (y_pred_prob > 0.5).astype(int)
         
         print("\nClassification Report:")
-        print(classification_report(y_val, y_pred, target_names=['Real', 'Fake']))
+        print(classification_report(y_val, y_pred, target_names=['True', 'False']))
         
         cm = confusion_matrix(y_val, y_pred)
         plt.figure(figsize=(8, 6))
         sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', 
-                    xticklabels=['Real', 'Fake'], yticklabels=['Real', 'Fake'])
+                    xticklabels=['True', 'Fake'], yticklabels=['True', 'False'])
         plt.title('Confusion Matrix')
         plt.ylabel('True Label')
         plt.xlabel('Predicted Label')
@@ -126,36 +125,31 @@ class FakeNewsWOW:
         padded = pad_sequences(sequence, maxlen=self.max_length)
         
         prediction = self.model.predict(padded)[0][0]
-        label = "Fake" if prediction > 0.5 else "Real"
+        label = "False" if prediction > 0.5 else "True"
         confidence = prediction if prediction > 0.5 else 1 - prediction
         
         return label, confidence
 
+    def save_model(self, model_path):
+        self.model.save(model_path)
+
 def main():
     classifier = FakeNewsWOW(vocab_size=10000, embedding_dim=128, max_length=300)
-    
+        
     texts, labels = classifier.load_data('../Fake.br-Corpus/preprocessed/pre-processed.csv')
-    
+        
     X, y = classifier.prepare_sequences(texts, labels)
-    
+        
     classifier.build_model()
     print(classifier.model.summary())
-    
+
     history, X_val, y_val = classifier.train_model(X, y, epochs=15)
-    
+        
     y_pred, y_pred_prob = classifier.evaluate_model(X_val, y_val)
-    
-    classifier.plot_training_history(history)
-    
+        
     val_accuracy = max(history.history['val_accuracy'])
-    
+        
     print(f"\nAccuracy: {val_accuracy:.4f}")
-    
-    sample_text = "lula morte prisao recebeu justiça investigacao"
-    prediction, confidence = classifier.predict_text(sample_text)
-    print(f"\nSample prediction:")
-    print(f"Text: {sample_text}")
-    print(f"Prediction: {prediction} (Confidence: {confidence:.4f})")
 
 if __name__ == "__main__":
     main()
