@@ -4,6 +4,6 @@
 ## Rodar API
 `python -m uvicorn api:app --reload --host 0.0.0.0 --port 8000`
 ## Rodar o site
-`cd site/raia
- npm install
- npm run dev`
+`cd site/raia`
+`npm install`
+`npm run dev`
