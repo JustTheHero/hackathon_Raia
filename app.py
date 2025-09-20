@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.responses import FileResponse
-from models.isso import test_enhanced_model
+from models.model import test_enhanced_model
 
 app = FastAPI()
 
