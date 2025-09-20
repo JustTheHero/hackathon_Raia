@@ -86,9 +86,9 @@ if __name__ == "__main__":
     MAX_QUERY_POSTS = 30000
     BATCH_SIZE = 100
 
-    QUERIES = ["Vaccine"] 
+    QUERIES = ["Vacina", "Vacina causa", "colateral vacina"] 
 
-    CSV_FILENAME = f"hackaton_vacina_{datetime.now().strftime('%Y%m%d')}.csv"
+    CSV_FILENAME = f"hackaton_vacinaPT_{datetime.now().strftime('%Y%m%d')}.csv"
 
     # Login na conta bluesky
     load_dotenv()
