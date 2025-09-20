@@ -162,7 +162,7 @@ class PortugueseTextAnalyzer:
         self.spell_checker = SpellChecker(language='pt')
         
         try:
-            self.nlp = spacy.load('pt_core_news_sm')
+            self.nlp = spacy.load('./models/pt_core_news_sm')
             self.has_spacy = True
         except:
             print("⚠️ spaCy português não encontrado. Algumas features serão limitadas.")
@@ -1027,7 +1027,7 @@ def test_enhanced_model(openai_api_key: str = None, csv_file: str = './sample_da
     classifier = EnhancedFakeNewsClassifier(openai_api_key)          
     
     try:         
-        classifier.load_model('enhanced_fake_news_classifier_pt.pkl')     
+        classifier.load_model('./models/enhanced_fake_news_classifier_pt.pkl')     
     except FileNotFoundError:         
         print("Modelo não encontrado! Execute train_enhanced_model() primeiro.")         
         return
