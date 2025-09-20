@@ -1,0 +1,146 @@
+.post-list {
+  margin-top: 2rem;
+}
+
+.post-list h2 {
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+.posts-container {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.post-card {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.post-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.post-card.fake-news {
+  border-left: 5px solid #e74c3c;
+}
+
+.post-card.true-news {
+  border-left: 5px solid #2ecc71;
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  flex-wrap: wrap;
+}
+
+.author {
+  font-weight: bold;
+  color: #3498db;
+}
+
+.date {
+  color: #95a5a6;
+}
+
+.post-content {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  color: #2c3e50;
+}
+
+.post-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ecf0f1;
+}
+
+.engagement {
+  display: flex;
+  gap: 1rem;
+  color: #7f8c8d;
+}
+
+.analysis {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.fake-score {
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.fake-score.high {
+  color: #e74c3c;
+}
+
+.fake-score.low {
+  color: #2ecc71;
+}
+
+.confidence {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+}
+
+.verdict {
+  font-weight: bold;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  display: inline-block;
+}
+
+.verdict.fake {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+.verdict.true {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.no-posts {
+  text-align: center;
+  padding: 3rem;
+  color: #7f8c8d;
+  font-style: italic;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .post-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .post-stats {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .analysis {
+    text-align: left;
+    width: 100%;
+  }
+}
