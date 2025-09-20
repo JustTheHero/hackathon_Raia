@@ -1,0 +1,51 @@
+# --- Ambientes virtuais ---
+venv/
+.env/
+.venv/
+ENV/
+env/
+env.bak/
+
+# --- Variáveis de ambiente ---
+*.env
+
+# --- Cache e compilados ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pkl
+
+# --- Logs e configs locais ---
+*.log
+*.pot
+*.mo
+*.sqlite3
+
+# --- IDEs e editores ---
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# --- Testes ---
+.coverage
+.tox/
+.pytest_cache/
+.nox/
+
+# --- Pacotes e build ---
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+pip-wheel-metadata/
+
+# --- Jupyter Notebooks ---
+.ipynb_checkpoints/
+.profile
+
+# --- Outros ---
+.DS_Store
+Thumbs.db
