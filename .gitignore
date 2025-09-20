@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # --- Ambientes virtuais ---
 venv/
 .env/
@@ -49,3 +50,7 @@ pip-wheel-metadata/
 # --- Outros ---
 .DS_Store
 Thumbs.db
+=======
+__pycache__
+.venv
+>>>>>>> API

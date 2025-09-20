@@ -1,0 +1,40 @@
+.App {
+  min-height: 100vh;
+  text-align: center;
+}
+
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.error-message {
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 15px;
+  border-radius: 5px;
+  margin: 20px 0;
+}
+
+.summary {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+}
+
+.summary h2 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.summary p {
+  margin: 5px 0;
+  font-size: 1.1em;
+}
+
+.results {
+  margin-top: 30px;
+}
