@@ -1022,7 +1022,7 @@ def train_enhanced_model(csv_path: str = './sample_data/pre-processed.csv', open
 import pandas as pd
 import os
 
-def test_enhanced_model(openai_api_key: str = None, csv_file: str = csv_path):
+def test_enhanced_model(openai_api_key: str = None, csv_file: str = './sample_data/deusehbom1.csv'):     
     print("Carregando modelo...")     
     classifier = EnhancedFakeNewsClassifier(openai_api_key)          
     
