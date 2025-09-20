@@ -1,3 +1,5 @@
+# ESTE PROGRAMA UTILIZA A API DO BLUESKY PARA OBTER POSTS DE UM DETERMINADO TEMA
+
 from dotenv import load_dotenv
 import os
 from atproto import Client, models

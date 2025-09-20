@@ -1,3 +1,5 @@
+# ESTE PROGRAMA OBTÉM INFORMAÇÕES RELEVANTES DO AUTOR DE CADA POST
+
 import csv
 import os
 from datetime import datetime, timezone
