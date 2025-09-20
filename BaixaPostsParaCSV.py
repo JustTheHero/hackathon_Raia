@@ -13,6 +13,7 @@ def search_posts(query, limit=100, cursor=None):
         limit=limit,
         cursor=cursor
     )
+
     
     try: 
         response = client.app.bsky.feed.search_posts(params)
@@ -29,6 +30,13 @@ def search_posts(query, limit=100, cursor=None):
                             for feature in facet.features:
                                 if hasattr(feature, 'tag') and feature.tag:
                                     hashtags.append(feature.tag)
+                # Dentro do loop de processamento do post
+                langs = getattr(post.record, "langs", [])
+                if langs and "pt" not in langs:
+                    continue  # Pula posts que não são em português
+                
+                if post.like_count < 7: 
+                    continue
 
                 posts.append({
                     'uri': post.uri,
@@ -44,6 +52,7 @@ def search_posts(query, limit=100, cursor=None):
                 })
             except Exception as e:
                 print(f"Erro ao processar post {post.uri}: {e}")
+                
              
         return posts, response.cursor        
             
@@ -55,6 +64,7 @@ def collect_for_query(query, batch_size, max_posts, seen_uris, writer):
     cursor = None
     total_collected = 0
     print("Obtendo dados para a query atual:", query)
+    cont = 0
 
     while total_collected < max_posts:
         print(f"Buscando {batch_size} posts... (Total: {total_collected})")
@@ -78,17 +88,21 @@ def collect_for_query(query, batch_size, max_posts, seen_uris, writer):
         if not cursor: 
             break
 
+        cont += 1
+        if cont >= 25:
+            break
+
     print(f"[{query}] concluído. Total de posts coletados: {total_collected}")
     return total_collected
 
 if __name__ == "__main__":
     # Configurações da busca
-    MAX_QUERY_POSTS = 30000
+    MAX_QUERY_POSTS = 3000
     BATCH_SIZE = 100
 
-    QUERIES = ["Vacina", "Vacina causa", "colateral vacina"] 
+    QUERIES = ["notícia", "relatou", "entrevista", "publicado na revista", "estudo mostra", "cientistas descobrem", "urgente"] 
 
-    CSV_FILENAME = f"hackaton_vacinaPT_{datetime.now().strftime('%Y%m%d')}.csv"
+    CSV_FILENAME = f"hackaton_noticia_{datetime.now().strftime('%Y%m%d')}.csv"
 
     # Login na conta bluesky
     load_dotenv()
