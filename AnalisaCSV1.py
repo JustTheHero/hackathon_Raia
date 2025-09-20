@@ -3,9 +3,12 @@ import os
 from datetime import datetime, timezone
 from collections import defaultdict
 from atproto import Client
+from dotenv import load_dotenv
+
 
 # ========== CONFIGURAÇÕES ==========
-CSV_FILENAME = "hackaton_vacina_20250920.csv"
+load_dotenv()
+CSV_FILENAME = "hackaton_noticia_semlimite_20250920.csv"
 USERNAME = os.environ.get("BLUESKY_USERNAME")
 PASSWORD = os.environ.get("BLUESKY_PASSWORD")
 
@@ -47,14 +50,14 @@ def calc_user_score(user, posts, duplicate_texts):
     if meta["followers"] > 0 and meta["following"] / meta["followers"] > 8:
         score += 1
 
-    # seguidores > 20k
-    if meta["followers"] > 20000:
-        score += 2
+    # # seguidores > 20k
+    # if meta["followers"] > 20000:
+    #     score += 2
 
     # posts duplicados
     for p in posts:
         if p["text"] in duplicate_texts:
-            score += 2
+            score += 3
             break
 
     return score

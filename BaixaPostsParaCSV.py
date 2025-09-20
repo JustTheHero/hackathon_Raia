@@ -12,7 +12,7 @@ def search_posts(query, limit=100, cursor=None):
         q=query,
         limit=limit,
         cursor=cursor
-    )
+    ) 
 
     
     try: 
@@ -35,8 +35,8 @@ def search_posts(query, limit=100, cursor=None):
                 if langs and "pt" not in langs:
                     continue  # Pula posts que não são em português
                 
-                if post.like_count < 7: 
-                    continue
+                # if post.like_count < 7: 
+                #     continue
 
                 posts.append({
                     'uri': post.uri,
@@ -102,7 +102,7 @@ if __name__ == "__main__":
 
     QUERIES = ["notícia", "relatou", "entrevista", "publicado na revista", "estudo mostra", "cientistas descobrem", "urgente"] 
 
-    CSV_FILENAME = f"hackaton_noticia_{datetime.now().strftime('%Y%m%d')}.csv"
+    CSV_FILENAME = f"hackaton_noticia_semlimite_{datetime.now().strftime('%Y%m%d')}.csv"
 
     # Login na conta bluesky
     load_dotenv()
