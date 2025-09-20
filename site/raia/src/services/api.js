@@ -26,12 +26,13 @@ export const analyzeTheme = async (theme, maxPosts = 10, language = 'pt') => {
 
 export const getDashboard = async (theme, maxPosts = 10) => {
   try {
-    const response = await api.get(`/dashboard/${theme}?max_posts=${maxPosts}`, {
-      responseType: 'blob',
+    const response = await api.get(`/dashboard/${theme}`, {
+      params: { max_posts: maxPosts },
+      responseType: 'blob'
     });
-    return URL.createObjectURL(response.data);
+    return response.data;
   } catch (error) {
-    console.error('Erro ao obter dashboard:', error);
+    console.error('Erro ao buscar dashboard:', error);
     throw error;
   }
 };

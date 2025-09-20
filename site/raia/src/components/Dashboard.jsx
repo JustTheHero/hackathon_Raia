@@ -3,7 +3,7 @@ import { getDashboard } from '../services/api';
 import './Dashboard.css';
 
 const Dashboard = ({ theme, maxPosts }) => {
-  const [dashboardUrl, setDashboardUrl] = useState(null);
+  const [dashboardImage, setDashboardImage] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -11,12 +11,18 @@ const Dashboard = ({ theme, maxPosts }) => {
     const fetchDashboard = async () => {
       try {
         setLoading(true);
-        const url = await getDashboard(theme, maxPosts);
-        setDashboardUrl(url);
         setError(null);
+        
+        // A API retorna a imagem diretamente, não uma URL
+        const imageBlob = await getDashboard(theme, maxPosts);
+        
+        // Cria uma URL para o blob da imagem
+        const imageUrl = URL.createObjectURL(imageBlob);
+        setDashboardImage(imageUrl);
+        
       } catch (err) {
         setError('Erro ao carregar dashboard');
-        console.error(err);
+        console.error('Erro no dashboard:', err);
       } finally {
         setLoading(false);
       }
@@ -25,6 +31,13 @@ const Dashboard = ({ theme, maxPosts }) => {
     if (theme) {
       fetchDashboard();
     }
+
+    // Cleanup function para revogar a URL quando o componente desmontar
+    return () => {
+      if (dashboardImage) {
+        URL.revokeObjectURL(dashboardImage);
+      }
+    };
   }, [theme, maxPosts]);
 
   if (loading) {
@@ -39,7 +52,16 @@ const Dashboard = ({ theme, maxPosts }) => {
     <div className="dashboard">
       <h2>Dashboard de Análise - {theme}</h2>
       <div className="dashboard-image">
-        <img src={dashboardUrl} alt={`Dashboard de análise para ${theme}`} />
+        {dashboardImage && (
+          <img 
+            src={dashboardImage} 
+            alt={`Dashboard de análise para ${theme}`}
+            onError={(e) => {
+              console.error('Erro ao carregar imagem do dashboard');
+              e.target.style.display = 'none';
+            }}
+          />
+        )}
       </div>
     </div>
   );

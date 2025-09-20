@@ -9,14 +9,16 @@ import './App.css'
 
 function App() {
   const [results, setResults] = useState(null)
+  const [theme, setTheme] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
 
-  const handleSearch = async (theme, maxPosts) => {
+  const handleSearch = async (searchTheme, maxPosts) => {
     try {
       setLoading(true)
       setError(null)
-      const data = await analyzeTheme(theme, maxPosts)
+      setTheme(searchTheme)
+      const data = await analyzeTheme(searchTheme, maxPosts)
       setResults(data)
     } catch (err) {
       setError(err.response?.data?.detail || 'Erro ao processar a requisição')
@@ -24,6 +26,11 @@ function App() {
     } finally {
       setLoading(false)
     }
+  }
+
+  // Adicione esta verificação para evitar erros
+  if (results && !results.summary) {
+    console.error('Estrutura inesperada dos resultados:', results)
   }
 
   return (
@@ -42,17 +49,33 @@ function App() {
           </div>
         )}
         
-        {results && !loading && (
+        {results && results.summary && !loading && (
           <div className="results">
             <div className="summary">
-              <h2>Resultados para: {results.theme}</h2>
-              <p>Total de posts analisados: {results.total_posts}</p>
-              <p>Fake news detectadas: {results.fake_news_count} ({results.analysis_summary.fake_news_percentage}%)</p>
+              <h2>Resultados para: {theme}</h2>
+              <p>Total de textos analisados: {results.summary.total_texts}</p>
+              <p>Classificados como FAKE: {results.summary.fake_count} ({results.summary.fake_percentage}%)</p>
+              <p>Classificados como TRUE: {results.summary.true_count} ({results.summary.true_percentage}%)</p>
+              <p>Confiança média: {results.summary.avg_confidence}%</p>
+              <p>Score de confiabilidade médio: {results.summary.avg_reliability}%</p>
             </div>
             
-            <Dashboard theme={results.theme} maxPosts={results.total_posts} />
+            <Dashboard 
+              theme={theme} 
+              data={results}
+              maxPosts={results.summary.total_texts} 
+            />
             
-            <PostList posts={results.posts} />
+            <PostList posts={results.texts || []} />
+          </div>
+        )}
+
+        {/* Adicione esta verificação para resultados inesperados */}
+        {results && !results.summary && !loading && (
+          <div className="error-message">
+            <h3>Formato de dados inesperado</h3>
+            <p>Os resultados retornaram em um formato diferente do esperado.</p>
+            <pre>{JSON.stringify(results, null, 2)}</pre>
           </div>
         )}
       </main>
