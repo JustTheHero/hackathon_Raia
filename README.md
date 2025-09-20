@@ -20,3 +20,6 @@ Utilizamos o fake-br-corpus, que contém notícias rotuladas como verdadeiras ou
 
 ### Checagem de fatos
 A LLM atua como um terceiro pilar, complementando os sinais de usuários e padrões textuais. Ela recebe o conteúdo suspeito e aplica checagem de fatos automática, além de receber as informações do modelo anterior e os metadados da conta. Assim, a decisão final é mais robusta, e a chance de alucinação é menor.
+
+### Dashboard
+Transformamos a checagem de fatos em uma API, que nos permite exibir de maneira clara: cada post, a avaliação de veracidade e o motivo da análise (por que foi considerado confiável ou suspeito).
