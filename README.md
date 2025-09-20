@@ -11,6 +11,12 @@ npm install
 npm run dev
 ```
 
+## Instalar Spacy pt previamente
+```
+!python -m spacy download pt_core_news_sm
+
+```
+
 ## Como funciona?
 ### Dados
 Utilizamos a API atproto da bluesky para obtermos postagens reais, além de obtermos informações relevantes sobre o autor e os posts, que incluem: Quando a conta foi criada, qual o ratio de seguidores/seguindo e quais posts foram postados por mais de um usuário, indicando coordenação.
