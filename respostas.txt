@@ -1,0 +1,147 @@
+
+RELATÓRIO DE ANÁLISE DE FAKE NEWS COM GPT-4 MINI
+============================================================
+
+RESUMO GERAL:
+• Total de textos analisados: 5
+• Classificados como FAKE: 5 (100.0%)
+• Classificados como TRUE: 0 (0.0%)
+• Confiança média: 97.4%
+• Score de confiabilidade médio: 82.7%
+
+ANÁLISE DETALHADA:
+
+--- TEXTO 1 ---
+Predição ML: FAKE (Confiança: 95.5%)
+Recomendação GPT: INCERTO
+Preview: Pesquisa realizada pela Universidade de São Paulo analisou dados de 50 mil pacientes 
+        durante dois anos. Os resultados, publicados na revista ...
+
+ANÁLISE GPT-4 MINI:
+DISCORDO. A classificação de "FAKE" parece não estar suficientemente fundamentada, considerando a natureza do texto e os indicadores apresentados.
+Score de Coerência: 6
+Justificativa: 
+
+INDICADORES TÉCNICOS:
+• Fake indicators: 1
+• Emotividade: 0.0
+• Linguagem conspirativa: 0
+• Pressão temporal: 0
+• Autoridade falsa: 0
+
+QUALIDADE DO TEXTO:
+• Legibilidade: 29.4
+• Diversidade lexical: 0.955
+• Qualidade ortográfica: 97.1%
+• Comprimento médio das sentenças: 17.3
+
+Score de Confiabilidade: 87.9%
+──────────────────────────────────────────────────────────────────────
+
+--- TEXTO 2 ---
+Predição ML: FAKE (Confiança: 96.1%)
+Recomendação GPT: FAKE. O texto claramente espalha informações falsas sobre vacinas, que têm sido amplamente desmentidas por estudos científicos e autoridades de saúde.
+Preview: URGENTE!!! Médicos ESCONDEM a VERDADE sobre a vacina!!! Ela causa AUTISMO e MORTE!!! 
+        O governo NÃO QUER que você saiba!!! Já matou MILHARES d...
+
+ANÁLISE GPT-4 MINI:
+CONCORDO. A análise automatizada indica que o texto é classificado como fake news com uma alta confiança de 96.1%. O conteúdo apresenta características típicas de desinformação, como afirmações alarmistas e sem embasamento científico.
+Score de Coerência: 9. A consistência dos indicadores é alta, com uma predição clara de fake news e uma probabilidade igualmente elevada. Os indicadores de emotividade e a presença de autoridade falsa corroboram a natureza enganosa do texto.
+Justificativa: 
+
+INDICADORES TÉCNICOS:
+• Fake indicators: 6
+• Emotividade: 23.2
+• Linguagem conspirativa: 0
+• Pressão temporal: 0
+• Autoridade falsa: 1
+
+QUALIDADE DO TEXTO:
+• Legibilidade: 66.7
+• Diversidade lexical: 0.897
+• Qualidade ortográfica: 96.8%
+• Comprimento médio das sentenças: 7.0
+
+Score de Confiabilidade: 68.1%
+──────────────────────────────────────────────────────────────────────
+
+--- TEXTO 3 ---
+Predição ML: FAKE (Confiança: 98.6%)
+Recomendação GPT: INCERTO. Dada a falta de evidências concretas que sustentem a classificação de FAKE e a presença de dados que podem ser verificados, a recomendação mais prudente é classificar o texto como INCERTO.
+Preview: O Ministério da Saúde informou hoje que a campanha de vacinação atingiu 75% da 
+        população adulta. Os dados foram coletados através do sistema ...
+
+ANÁLISE GPT-4 MINI:
+DISCORDO. A análise automatizada indica que o texto é classificado como FAKE com uma confiança muito alta (98.6%). No entanto, a ausência de indicadores de fake news, como emotividade, linguagem conspirativa, pressão temporal e autoridade falsa, sugere que o texto não apresenta características típicas de desinformação. Além disso, a qualidade ortográfica é perfeita e a legibilidade, embora não ideal, não é baixa o suficiente para comprometer a credibilidade do conteúdo.
+Score de Coerência: 6. A classificação como FAKE parece inconsistente quando se considera a ausência de indicadores que normalmente estariam presentes em uma fake news. A análise automatizada pode ter considerado outros fatores que não são evidentes no texto apresentado.
+Justificativa: 
+
+INDICADORES TÉCNICOS:
+• Fake indicators: 0
+• Emotividade: 0.0
+• Linguagem conspirativa: 0
+• Pressão temporal: 0
+• Autoridade falsa: 0
+
+QUALIDADE DO TEXTO:
+• Legibilidade: 48.2
+• Diversidade lexical: 0.861
+• Qualidade ortográfica: 100.0%
+• Comprimento médio das sentenças: 21.5
+
+Score de Confiabilidade: 89.4%
+──────────────────────────────────────────────────────────────────────
+
+--- TEXTO 4 ---
+Predição ML: FAKE (Confiança: 98.5%)
+Recomendação GPT: FAKE.
+Preview: Cientistas DESCOBREM que a vacina altera o DNA!!! Governos do mundo TODO estão 
+        ESCONDENDO isso da população!!! Não se deixe ENGANAR pela mídi...
+
+ANÁLISE GPT-4 MINI:
+CONCORDO. A análise automatizada indica que o texto é classificado como fake news com uma alta confiança de 98.5%. Essa classificação é consistente com o conteúdo alarmista e sem evidências científicas que sugere uma conspiração global.
+Score de Coerência: 9. A análise apresenta uma forte consistência nos indicadores, especialmente na alta probabilidade de ser fake e na emotividade do texto, que é um sinal comum de desinformação.
+Justificativa: 
+
+INDICADORES TÉCNICOS:
+• Fake indicators: 1
+• Emotividade: 14.5
+• Linguagem conspirativa: 0
+• Pressão temporal: 0
+• Autoridade falsa: 0
+
+QUALIDADE DO TEXTO:
+• Legibilidade: 25.8
+• Diversidade lexical: 0.912
+• Qualidade ortográfica: 96.4%
+• Comprimento médio das sentenças: 8.2
+
+Score de Confiabilidade: 79.1%
+──────────────────────────────────────────────────────────────────────
+
+--- TEXTO 5 ---
+Predição ML: FAKE (Confiança: 98.3%)
+Recomendação GPT: TRUE. Com base na análise qualitativa do texto e na falta de indicadores que sustentem a classificação de fake news, a recomendação é que a informação é verdadeira.
+Preview: Segundo relatório da Organização Mundial da Saúde, divulgado em março, as vacinas 
+        desenvolvidas contra a COVID-19 demonstraram perfil de segu...
+
+ANÁLISE GPT-4 MINI:
+DISCORDO. A análise automatizada indica que o texto é classificado como FAKE com uma alta confiança, mas a falta de indicadores de fake news e a qualidade do texto sugerem que a informação pode ser verdadeira. A afirmação sobre o relatório da OMS e o perfil de segurança das vacinas é consistente com informações amplamente divulgadas e aceitas na comunidade científica.
+Score de Coerência: 6. A classificação de FAKE parece inconsistente com a ausência de indicadores de fake news e a qualidade do texto. No entanto, a alta confiança da análise automatizada levanta questões sobre a precisão do modelo.
+Justificativa: 
+
+INDICADORES TÉCNICOS:
+• Fake indicators: 0
+• Emotividade: 0.0
+• Linguagem conspirativa: 0
+• Pressão temporal: 0
+• Autoridade falsa: 0
+
+QUALIDADE DO TEXTO:
+• Legibilidade: 14.3
+• Diversidade lexical: 0.912
+• Qualidade ortográfica: 95.8%
+• Comprimento médio das sentenças: 20.5
+
+Score de Confiabilidade: 88.9%
+──────────────────────────────────────────────────────────────────────
