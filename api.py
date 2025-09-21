@@ -177,8 +177,8 @@ async def analyze_theme_with_gpt(theme: str, max_posts: int = 10, language: str 
     print(f"Analisando tema: {theme}, posts: {max_posts}, idioma: {language}")
     
     # Chama sua função existente (ajuste conforme necessário)
-    report_filename = test_enhanced_model(openai_api_key=API_KEY)
-    # report_filename = "respostas.txt"
+    #report_filename = test_enhanced_model(openai_api_key=API_KEY)
+    report_filename = "respostas.txt"
     
     # Lê e parseia o relatório
     with open(report_filename, 'r', encoding='utf-8') as f:
